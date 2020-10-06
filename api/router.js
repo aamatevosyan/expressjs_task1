@@ -2,6 +2,7 @@ let {Router} = require('express');
 let router = Router();
 let moment = require('moment');
 let bodyParser = require('body-parser');
+let multer = require('multer');
 let fs = require('fs');
 let path = require('path');
 
@@ -25,7 +26,7 @@ router.get('/time', (req, res) => {
 //users = JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json'), {encoding: 'utf8'}));
 users = [];
 
-router.post('/users', (req, res) => {
+router.post('/users', multer().none(), (req, res) => {
     console.log(req.body);
     let {username, password, agree, gender} = req.body;
     users.push({username, password, agree, gender});

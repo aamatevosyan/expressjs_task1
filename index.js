@@ -5,6 +5,7 @@ let moment = require('moment');
 let app = express();
 let apiRouter = require('./api/router');
 let formRouter = require('./form/router');
+let bodyParser = require('body-parser');
 let path = require('path');
 let pug = require('pug');
 
@@ -12,6 +13,8 @@ app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
 
 app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api', apiRouter);
 app.use('/form', formRouter);
