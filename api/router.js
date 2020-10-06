@@ -1,7 +1,6 @@
 let {Router} = require('express');
 let router = Router();
 let moment = require('moment');
-let multer = require('multer');
 let fs = require('fs');
 let path = require('path');
 const { validate, ValidationError, Joi } = require('express-validation')
@@ -32,7 +31,7 @@ router.get('/time', (req, res) => {
 //users = JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json'), {encoding: 'utf8'}));
 users = [];
 
-router.post('/users', multer().none(), validate(loginValidation, {}, {}), (req, res) => {
+router.post('/users', validate(loginValidation, {}, {}), (req, res) => {
     console.log(req.body);
     let {username, password, agree, gender} = req.body;
     users.push({username, password, agree, gender});
