@@ -10,8 +10,8 @@ table.table
       th(scope='col') Gender
       th(scope='col') Agree
   tbody
-    tr
-      each val, index in users
+    each val, index in users
+      tr
         th(scope='row')=(index + 1)
         td=val.username
         td=val.password
