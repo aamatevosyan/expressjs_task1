@@ -1,0 +1,36 @@
+link(rel='stylesheet' href='./css/bootstrap.min.css')
+script(src='./js/bootstrap.min.js')
+
+
+form.form-horizontal(method="POST" action="/form")
+  fieldset
+    // Form Name
+    legend Users Submit Form
+    // Text input
+    .form-group
+      label.col-md-4.control-label(for='username') Username
+      .col-md-4
+        input#username.form-control.input-md(name='username' type='text' placeholder='Enter username...' required='true')
+    // Password input
+    .form-group
+      label.col-md-4.control-label(for='password') Password
+      .col-md-4
+        input#password.form-control.input-md(name='password' type='password' placeholder='Enter password...' required='true')
+    // Select Basic
+    .form-group
+      label.col-md-4.control-label(for='gender') Gender
+      .col-md-4
+        select#gender.form-control(name='gender')
+          option(value='male') Male
+          option(value='female') Female
+    // Multiple Checkboxes (inline)
+    .form-group
+      label.col-md-4.control-label(for='agree') Agree with conditions
+      .col-md-4
+        label.checkbox-inline(for='agree')
+          input#checkboxes-0(type='checkbox' name='agree' value='true')
+          |       Yes
+    // Button
+    .form-group
+      .col-md-4
+        input#submit.btn.btn-primary(type='submit' formmethod='POST')
